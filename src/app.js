@@ -1,21 +1,17 @@
 const express = require('express')
-const HTTP_PORT = process.env.HTTP_PORT || 8080;
+const taskCtrl = require('./http/controllers/task.controller')
+const mongoose = require('mongoose')
 
-const taskController = require('./http/controllers/task.controller')
+const HTTP_PORT = process.env.HTTP_PORT || 80
 
-const app = express() 
+const app = express()
 
-app.get('/v1/task', taskController.listTasks)
-app.post('/v1/task', taskController.createTask)
+app.use(taskCtrl)
 
-mongoose.connect('mongodb://localhost:27017/tasks')
+mongoose.connect('mongodb://todolist:todolist@mongo:27017/todolist')
 
 mongoose.connection.on('open', () => {
-  app.listen(HTTP_PORT, () => {
-    console.log(`Listing on port ${HTTP_PORT}`)
-  })
-})
-
-app.listen(80, () => {
-    console.log('Escutando na porta 8888')
+    app.listen(HTTP_PORT, () => {
+        console.log(`Escutando na porta ${HTTP_PORT}`)
+    })
 })

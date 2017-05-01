@@ -1,14 +1,8 @@
-const listTasks = (req, res, next) => {
+const express = require('express')
+const router = express.Router()
+
+router.get('/v1/task', (req, res) => {
   res.send('teste')
-  next()
-}
+})
 
-const createTask = (req, res, next) => {
-  res.send('criando task')
-  next()
-}
-
-module.exports = {
-  listTasks,
-  createTask
-}
+module.exports = router

@@ -8,5 +8,9 @@
     "start": "node src/app.js"
   },
   "author": "Ricardo Ledo & Emerson Jr",
-  "license": "GPL-3.0"
+  "license": "GPL-3.0",
+  "dependencies": {
+    "express": "^4.15.2",
+    "mongoose": "^4.9.7"
+  }
 }
