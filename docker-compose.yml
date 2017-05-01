@@ -16,3 +16,15 @@ services:
       - ./:/code/
     working_dir: /code/
     entrypoint: 'npm start'
+    depends_on:
+      - mongo
+
+  npm:
+    image: node:7.5-alpine
+    volumes: 
+      - ./:/code/
+    working_dir: /code/
+    entrypoint: 'npm'
+
+  mongo:
+    image: mongo:3.0
