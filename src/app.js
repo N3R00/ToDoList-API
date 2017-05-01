@@ -1,8 +1,7 @@
 const express = require('express')
-const mongoose = require('mongoose')
 const HTTP_PORT = process.env.HTTP_PORT || 8080;
 
-const taskController = require('./http/controllers/task')
+const taskController = require('./http/controllers/task.controller')
 
 const app = express() 
 
