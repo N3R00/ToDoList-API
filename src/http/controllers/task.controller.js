@@ -3,7 +3,7 @@ const router = express.Router()
 const Task = require('./../../models/task.model') 
 
 router.get('/v1/task', (req, res) => {
-  Task.findById('5907b20835be9e000f09ffa9')
+  Task.findById(req.params)
     .then((task) => {
       res.send(task)
     })
