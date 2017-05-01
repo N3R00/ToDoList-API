@@ -1,8 +1,22 @@
 const express = require('express')
 const router = express.Router()
+const Task = require('./../../models/task.model') 
 
 router.get('/v1/task', (req, res) => {
-  res.send('teste')
+  Task.findById('5907b20835be9e000f09ffa9')
+    .then((task) => {
+      res.send(task)
+    })
+})
+
+router.post('/v1/task', (req, res) => {
+  const task = new Task()
+
+  task.description = req.body.description
+
+  task.save( () => {
+    res.send(task)
+  })
 })
 
 module.exports = router
