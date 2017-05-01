@@ -3,7 +3,8 @@ const taskController = require('./http/controllers/task')
 
 const app = express() 
 
-app.use(taskController)
+app.get('/v1/task', taskController.listTasks)
+app.post('/v1/task', taskController.createTask)
 
 app.listen(80, () => {
     console.log('Escutando na porta 8888')

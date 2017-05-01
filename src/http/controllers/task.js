@@ -1,6 +1,14 @@
-module.exports = (app) => {
-  app.get('/v1/task', (req, res, next) => {
-    res.send('teste')
-    next()
-  })
-} 
+const listTasks = (req, res, next) => {
+  res.send('teste')
+  next()
+}
+
+const createTask = (req, res, next) => {
+  res.send('criando task')
+  next()
+}
+
+module.exports = {
+  listTasks,
+  createTask
+}
